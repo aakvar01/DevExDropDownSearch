@@ -21,7 +21,11 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
-    "rxjs": "^6.0.0",
+    "devextreme": "^18.1.5",
+    "devextreme-angular": "^18.1.5",
+    "jszip": "^3.1.5",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "6.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -31,6 +35,7 @@
     "@angular/language-service": "^6.1.0",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jquery": "2.0.34",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
