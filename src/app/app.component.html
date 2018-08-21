@@ -1,33 +1,49 @@
 <div class="dx-fieldset">
   <div class="dx-field">
       <div class="dx-field-label">DropDownBox with embedded DataGrid</div>
+      {{_gridBoxValue}}
       <div class="dx-field-value">
           <dx-drop-down-box
-                  [(value)]="gridBoxValue"
-                  valueExpr="ID"
-                  [acceptCustomValue]="true"
-                  valueChangeEvent="grid_valChange($event)"
-                  displayExpr="CompanyName"
-                  placeholder="Select a value..."
-                  [showClearButton]="true"
-                  [opened]="gridBoxOpened"
-                  (onInput)="grid_onInput($event)"
-                  (onClosed)="grid_onClosed($event)"
-                  [dataSource]="gridDataSource"
+          [dataSource]="gridDataSource" 
+          [(value)]="gridBoxValue" 
+          valueExpr="CompanyName" 
+          [acceptCustomValue]="true" 
+          valueChangeEvent=""
+				  displayExpr="CompanyName" 
+          placeholder="Select a value..." 
+          [showClearButton]="true" 
+          [(opened)]="gridBoxOpened" 
+          (onFocusOut)="onFocusOut($event)"
+          (onInput)="grid_onInput($event)"
+				  (onClosed)="grid_onClosed($event)"
           >
 
               <div *dxTemplate="let data of 'content'">
-                  <dx-data-grid
-                          [dataSource]="gridDataSource"
-                          [columns]="['CompanyName', 'City', 'Phone']"
-                          [selection]="{ mode: 'single' }"
-                          [hoverStateEnabled]="true"
-                          [paging]="{ enabled: true, pageSize: 10 }"
-                          [scrolling]="{ mode: 'infinite' }"
-                          [height]="265"
-                          [(selectedRowKeys)]="gridSelectedRowKeys"
-                  >
-                  </dx-data-grid>
+                <dx-data-grid 
+                [dataSource]="gridDataSource" 
+                [remoteOperations]="true"
+                [rowAlternationEnabled]="true"
+                [showRowLines]="true"
+                [columns]="['CompanyName', 'City', 'Phone']" 
+                [selection]="{ mode: 'single' }" 
+                [hoverStateEnabled]="true"
+                            [paging]="{ enabled: true, pageSize: 10 }" 
+                [scrolling]="{ mode: 'infinite' }" 
+                [height]="265" 
+                [(selectedRowKeys)]="gridSelectedRowKeys"
+                >
+
+
+                <dxo-filter-row [visible]="true"
+                applyFilter="onKeyUp">
+</dxo-filter-row>
+
+<dxo-header-filter [visible]="true">
+</dxo-header-filter>
+
+<dxo-selection mode="single" ></dxo-selection>
+
+                          </dx-data-grid>
               </div>
           </dx-drop-down-box>
       </div>
